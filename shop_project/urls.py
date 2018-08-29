@@ -19,7 +19,9 @@ from shop_app import views
 
 urlpatterns = [
     path('', views.ProductListView.as_view(), name='index'),
+    path('products/', views.ProductListView.as_view(), name='product'),
     path('product/<int:pk>/', views.ProductDetail.as_view(), name='detail'),
-    #path('category/<int:pk>', views.)
+    path('categorys/', views.CategoryList.as_view(), name='categorys'),
+    path('categorys/<int:pk>', views.CategoryDetail.as_view(), name='category_detail'),
     path('admin/', admin.site.urls),
 ]

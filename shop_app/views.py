@@ -16,6 +16,11 @@ class ProductDetail(generic.DetailView):
     template_name = 'product_detail.html'
     model = Product
 
-#class CategoryList(generic):
-#    template_name = 'category_list.html'
-#    model = Category
+class CategoryList(generic.ListView):
+    template_name = 'categorys_list.html'
+    context_object_name = 'categorys'
+    model = Category
+
+class CategoryDetail(generic.DetailView):
+    template_name = 'category_detail.html'
+    model = Category

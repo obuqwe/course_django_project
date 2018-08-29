@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
+
 {% block content %}
+
 {% for product in products %}
-  <a href="{% url 'detail' product.category.pk %} "><p>{{ product.category.title }}</p></a>
-{% endfor %}
-{% for product in products %}
-  <a href="{% url 'detail' product.pk %} "><h2>{{ product.title }}</h2></a>
+  <a href="{% url 'detail' product.pk %}"><h2>{{ product.title }}</h2></a>
   <p>{{ product.description }}</p>
 {% endfor %}
+
 {% endblock %}
