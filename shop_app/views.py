@@ -15,3 +15,7 @@ class ProductListView(generic.ListView):
 class ProductDetail(generic.DetailView):
     template_name = 'product_detail.html'
     model = Product
+
+#class CategoryList(generic):
+#    template_name = 'category_list.html'
+#    model = Category

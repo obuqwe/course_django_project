@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 {% for product in products %}
-  <a href="{% url 'detail' product.category.pk %} "><p>{{ product.category.title }}</p></a>
+  <a href="{% url 'detail' category.pk %} "><h2>{{ product.category.title }}</h2></a>
+  <p>{{ product.description }}</p>
+  <p>{{ product.category.title }}</p>
 {% endfor %}
 {% for product in products %}
   <a href="{% url 'detail' product.pk %} "><h2>{{ product.title }}</h2></a>
   <p>{{ product.description }}</p>
+  <p>{{ product.category.title }}</p>
 {% endfor %}
 {% endblock %}
