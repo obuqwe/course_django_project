@@ -17,8 +17,8 @@ class ProductDetail(generic.DetailView):
     model = Product
 
 class CategoryList(generic.ListView):
-    template_name = 'categorys_list.html'
-    context_object_name = 'categorys'
+    template_name = 'categories_list.html'
+    context_object_name = 'categories'
     model = Category
 
 class CategoryDetail(generic.DetailView):
