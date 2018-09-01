@@ -23,5 +23,7 @@ urlpatterns = [
     path('product/<int:pk>/', views.ProductDetail.as_view(), name='detail'),
     path('categories/', views.CategoryList.as_view(), name='categories'),
     path('categories/<int:pk>', views.CategoryDetail.as_view(), name='category_detail'),
+    path('products/new/', views.ProductCreate.as_view(), name='product_create'),
+    path('product/<int:pk>/order', views.OrderFormView.as_view(), name='product_order'),
     path('admin/', admin.site.urls),
 ]

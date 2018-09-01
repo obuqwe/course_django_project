@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Заказ товара</h1>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type='submit'>Заказать</button>
+{% endblock %}
