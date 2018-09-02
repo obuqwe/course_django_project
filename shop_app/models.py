@@ -23,3 +23,4 @@ class Order(models.Model):
     product = models.ForeignKey(Product, on_delete='CASCADE')
     customer_name = models.CharField(max_length=200)
     customer_phone = models.CharField(max_length=200)
+    #user = models.ForeignKey('User', on_delete='CASCADE')
