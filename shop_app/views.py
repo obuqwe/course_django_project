@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from django.views import generic
 from .models import Product, Category, Order
@@ -32,7 +33,7 @@ class ProductCreate(generic.CreateView):
     template_name = 'product_new.html'
     fields = '__all__'
 
-class OrderFormView(generic.CreateView):
+class OrderFormView(LoginRequiredMixin,generic.CreateView):
     model = Order
     template_name = 'order_form.html'
     success_url = '/'
@@ -54,3 +55,9 @@ class SignUpView(generic.CreateView):
         form.instance.user = user
         form.instance.product = product
         return super().form_valid(form)
+
+class SecretAdminView(UserPassesTestMixin, generic.TemplateView):
+    template_name = 'memes.html'
+
+    def test_func(self):
+        return self.request.user.is_superuser
