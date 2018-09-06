@@ -27,5 +27,6 @@ urlpatterns = [
     path('product/<int:pk>/order', views.OrderFormView.as_view(), name='product_order'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/signup/', views.SignUpView.as_view(), name='signup'),
+    path('api/products/', views.ProductListAPI.as_view(), name='api_products_api'),
     path('admin/', admin.site.urls),
 ]

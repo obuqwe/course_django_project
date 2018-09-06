@@ -3,6 +3,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from django.views import generic
+from rest_framework import generics, permissions
+from rest_framework.renderers import JSONRenderer, BrowsableAPIRenderer
+from .serializers import ProductSerializer
 from .models import Product, Category, Order
 
 class ProductListView(generic.ListView):
@@ -61,3 +64,9 @@ class SecretAdminView(UserPassesTestMixin, generic.TemplateView):
 
     def test_func(self):
         return self.request.user.is_superuser
+
+class ProductListAPI(generics.ListCreateAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    renderer_classes = (JSONRenderer, BrowsableAPIRenderer)
+    #permission_classes = (permissions.IsAdminUser, )
